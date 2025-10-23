@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/RegisterGLh1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <ImageView
+        android:id="@+id/RegisterLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/cat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/RegisterGLh1" />
+
+    <TextView
+        android:id="@+id/RegisterAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro"
+        android:textSize="35sp"
+        app:layout_constraintTop_toBottomOf="@id/RegisterLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/brich" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/RegisterGLv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/RegisterGLv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegisterTILuserName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/RegisterAppName"
+        app:layout_constraintStart_toStartOf="@id/RegisterGLv1"
+        app:layout_constraintEnd_toEndOf="@id/RegisterGLv2"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crea un nombre de usuario"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegisterTILEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/RegisterTILuserName"
+        app:layout_constraintStart_toStartOf="@id/RegisterGLv1"
+        app:layout_constraintEnd_toEndOf="@id/RegisterGLv2"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_email">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Agrega un correo electrónico"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegisterTILPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/RegisterTILEmail"
+        app:layout_constraintStart_toStartOf="@id/RegisterGLv1"
+        app:layout_constraintEnd_toEndOf="@id/RegisterGLv2"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_key"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Crea una contraseña"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/RegisterTILPasswordConfirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/RegisterTILPassword"
+        app:layout_constraintStart_toStartOf="@id/RegisterGLv1"
+        app:layout_constraintEnd_toEndOf="@id/RegisterGLv2"
+        android:layout_marginTop="10dp"
+        app:startIconDrawable="@drawable/ic_key"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirma la contraseña"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/RegisterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Registrarse"
+        app:layout_constraintTop_toBottomOf="@id/RegisterTILPasswordConfirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/RegisterTVLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="¿Ya tienes cuenta? Inicia sesión"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/RegisterButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
