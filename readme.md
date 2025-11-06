@@ -17,7 +17,7 @@
 # CLASES 
 
 ## MainActivity
-La mainActivity es una pantalla de bienvenida con un contador. Al arrancar, en el onCreate se activa el edgeToEdge, se carga el layout activity_main y se ajustan los márgenes con los insets igual que en las demás.
+La mainActivity es una pantalla de bienvenida con un contador. Al arrancar, en el onCreate se activa el edgeToEdge, se carga el layout activity_main y se ajustan los márgenes con los insets.
 
 Luego obtenemos las referencias a los elementos del layout: el botón, el textview donde se muestra el contador y el textview de bienvenida. Después recogemos el bundle que llega del intent anterior (desde login o register) y se extrae el nombre del usuario que se pasó como extra. Con eso se cambia el texto del mainBienvenidaTV para mostrar “hola [nombre], bienvenido”, que es el mensaje de bienvenida personalizado.
 
