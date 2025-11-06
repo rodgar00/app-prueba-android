@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button mainButton;
     TextView mainTV;
     int contador;
+    TextView mainBienvenidaTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button mainButton = findViewById(R.id.mainButton);
         TextView mainTV = findViewById(R.id.mainTV);
+        mainBienvenidaTV = findViewById(R.id.mainBienvenidaTV);
+
+        Bundle bundle = getIntent().getExtras();
+        String nombre = bundle.getString("nombre");
+        mainBienvenidaTV.setText("Hola " + nombre + ", bienvenido");
 
         contador = 0;
         mainTV.setText(String.valueOf(contador));

@@ -8,8 +8,19 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/mainBienvenidaTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/material_dynamic_primary0"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/mainTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/mainTV"
-        android:textColor="@color/black"
+        android:textColor="@color/material_dynamic_primary0"
         android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,12 +1,13 @@
 package com.rodgar00.zenvestprueba;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,18 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Login extends AppCompatActivity {
 
-    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-            Pattern.compile("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,6}$");
-
-    public static boolean validate(String emailStr) {
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-        return matcher.matches();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,33 +80,51 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        FormUtils formUtils = new FormUtils();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String savedUserName = sharedPref.getString("userName", "");
+        String hashedPassword = sharedPref.getString("password", "");
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = String.valueOf(loginTILUser.getEditText().getText());
-                String password = String.valueOf(loginTILPassword.getEditText().getText());
+                boolean canContinue = true;
 
-                if (username.isEmpty()){
-                    Toast.makeText(Login.this, "El usuario no puede estar vacío", Toast.LENGTH_SHORT).show();
+                if (formUtils.isTILEmpty(loginTILUser)) {
                     loginTILUser.setErrorEnabled(true);
-                    loginTILUser.setError("Tu nombre está vacío");
-                    return;
+                    loginTILUser.setError("Necesitas acceder con un nombre de usuario.");
+                    canContinue = false;
                 }
 
-                if (password.isEmpty()){
-                    Toast.makeText(Login.this, "La contraseña no puede estar vacía", Toast.LENGTH_SHORT).show();
+                String inputText = loginTILUser.getEditText().getText().toString();
+
+                if (!formUtils.checkUser(inputText, savedUserName)) {
+                    loginTILUser.setErrorEnabled(true);
+                    loginTILUser.setError("Usuario incorrecto.");
+                    canContinue = false;
+                }
+
+                if (formUtils.isTILEmpty(loginTILPassword)) {
                     loginTILPassword.setErrorEnabled(true);
-                    loginTILPassword.setError("Tu contraseña está vacía");
-                    return;
+                    loginTILPassword.setError("La contraseña está vacía.");
+                    canContinue = false;
+                } else if (!formUtils.checkPassword(formUtils.getTILText(loginTILPassword), hashedPassword)) {
+                    loginTILPassword.setErrorEnabled(true);
+                    loginTILPassword.setError("La contraseña es incorrecta.");
+                    canContinue = false;
                 }
 
-
-                Toast toast = Toast.makeText(Login.this, "Bienvenido "+ username, Toast.LENGTH_SHORT);
-                toast.show();
-                Intent intentMain = new Intent(Login.this, MainActivity.class);
-                startActivity(intentMain);
+                if (canContinue) {
+                    Toast.makeText(Login.this, "Bienvenido " + formUtils.getTILText(loginTILUser), Toast.LENGTH_SHORT).show();
+                    Intent intentMain = new Intent(Login.this, MainActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("nombre", String.valueOf(loginTILUser.getEditText().getText()));
+                    intentMain.putExtras(bundle);
+                    startActivity(intentMain);
+                }
             }
         });
+
 
         loginTVRegister.setOnClickListener(new View.OnClickListener() {
             @Override
