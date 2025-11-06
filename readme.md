@@ -11,7 +11,7 @@
   - [activity_login](#activity_login)
   - [activity_register](#activity_register)
   - [activity_splash](#activity_splash)
-
+-[Temas](#Temas)
 
 # CLASES 
 
@@ -87,3 +87,5 @@ Luego hay dos guías verticales (registerGLV1 y registerGLV2) que delimitan los 
 Este xml define la pantalla inicial SplashScreen. splashImagenFondo es la imagen de fondo que ocupa toda la pantalla. Encima está splashDegradado, una vista con fondo degradado que oscurece el fondo. splashLogo es el icono principal de la aplicación, centrado horizontalmente usando la guía splashGLh1. Tiene la imagen del gato. Debajo de él está splashAppName, un TextView que muestra el texto “Bienvenido”, con una fuente personalizada (brich) y color primario, también centrado. splashGLh1 es una Guideline horizontal en el 0% que sirve como punto de referencia superior para el logo.
 En la clase SplashScreen, se carga este layout y se aplica la animación fade_in al splashLogo y al splashAppName para hacer que aparezcan suavemente y de movimiento. Después de un pequeño retraso, la actividad lanza un Intent hacia Register o Login según el flujo de la app.
 
+# Temas
+En /app/src/res encontramos values y values_night con el tema.
