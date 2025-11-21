@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainfr.Arrecifes">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tareas"
+                android:textColor="@color/md_theme_primary"
+                android:textSize="50sp"
+                android:fontFamily="@font/brich"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                >
+
+            </TextView>
+
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta1"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta2"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta3"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta4"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta5"/>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</FrameLayout>

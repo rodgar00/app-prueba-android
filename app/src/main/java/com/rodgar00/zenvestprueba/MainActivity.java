@@ -1,51 +1,39 @@
 package com.rodgar00.zenvestprueba;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.rodgar00.zenvestprueba.databinding.ActivityMainBinding;
+import com.rodgar00.zenvestprueba.ui.frmanager.Paginador;
 
 public class MainActivity extends AppCompatActivity {
-    Button mainButton;
-    TextView mainTV;
-    int contador;
-    TextView mainBienvenidaTV;
+    private ActivityMainBinding binding;
+
+
+    private int contador = 0;
+    private TextView mainTV;
+    private ViewPager viewPager;
+    private Paginador paginador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        mainTV = findViewById(R.id.mainTV);
         Button mainButton = findViewById(R.id.mainButton);
-        TextView mainTV = findViewById(R.id.mainTV);
-        mainBienvenidaTV = findViewById(R.id.mainBienvenidaTV);
-
-        Bundle bundle = getIntent().getExtras();
-        String nombre = bundle.getString("nombre");
-        mainBienvenidaTV.setText("Hola " + nombre + ", bienvenido");
-
-        contador = 0;
         mainTV.setText(String.valueOf(contador));
 
-        mainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                contador++;
-                mainTV.setText(String.valueOf(contador));
-            }
-        });
+        mainButton.setOnClickListener(v -> mainTV.setText(String.valueOf(++contador)));
+
+        viewPager = findViewById(R.id.coralViewPager);
+        paginador = new Paginador(this, getSupportFragmentManager());
+        viewPager.setAdapter(paginador);
     }
+
 }

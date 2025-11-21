@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainfr.Arrecifes">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gatos no molones"
+                android:textSize="40sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:textColor="@color/md_theme_secondary"
+                android:fontFamily="@font/brich"
+                >
+
+            </TextView>
+
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_1"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_2"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_3"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_4"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_5"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_6"/>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
