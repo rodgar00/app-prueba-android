@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.rodgar00.zenvestprueba.MainActivity;
-import com.rodgar00.zenvestprueba.mainfr.Arrecifes;
-import com.rodgar00.zenvestprueba.mainfr.Peces;
+import com.rodgar00.zenvestprueba.mainfr.GatoMolon;
+import com.rodgar00.zenvestprueba.mainfr.GatoNoMolon;
 
 public class Paginador extends FragmentPagerAdapter {
 
@@ -18,7 +18,7 @@ public class Paginador extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return position == 0 ? new Arrecifes() : new Peces();
+        return position == 0 ? new GatoMolon() : new GatoNoMolon();
     }
 
     @Override

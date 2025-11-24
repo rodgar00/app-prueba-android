@@ -47,7 +47,7 @@
                 android:textSize="50sp"
                 android:textColor="@color/material_dynamic_primary0"
                 android:fontFamily="@font/brich"
-                android:text="Gato"
+                android:text="Miau"
                 >
 
             </com.google.android.material.textview.MaterialTextView>

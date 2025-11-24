@@ -10,8 +10,8 @@ import com.rodgar00.zenvestprueba.databinding.ActivityMainBinding;
 import com.rodgar00.zenvestprueba.ui.frmanager.Paginador;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
 
+    private ActivityMainBinding binding;
 
     private int contador = 0;
     private TextView mainTV;
@@ -20,20 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         mainTV = findViewById(R.id.mainTV);
         Button mainButton = findViewById(R.id.mainButton);
-        mainTV.setText(String.valueOf(contador));
-
-        mainButton.setOnClickListener(v -> mainTV.setText(String.valueOf(++contador)));
-
         viewPager = findViewById(R.id.coralViewPager);
+
+        String nombre = getIntent().getStringExtra("nombre");
+
+        if (nombre != null) {
+            mainTV.setText("Hola, " + nombre);
+        } else {
+            mainTV.setText(String.valueOf(contador));
+        }
+        mainButton.setOnClickListener(v -> mainTV.setText(String.valueOf(++contador)));
         paginador = new Paginador(this, getSupportFragmentManager());
         viewPager.setAdapter(paginador);
     }
-
 }

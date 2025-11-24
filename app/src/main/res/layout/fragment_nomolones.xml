@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainfr.Arrecifes">
+    tools:context=".mainfr.GatoNoMolon">
 
 
 
@@ -19,7 +19,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gatos no molones"
+                android:text="Gatos molones"
                 android:textSize="40sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
@@ -30,12 +30,12 @@
 
             </TextView>
 
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_1"/>
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_2"/>
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_3"/>
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_4"/>
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_5"/>
-            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarea_completada_6"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_1"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_2"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_3"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_4"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_5"/>
+            <include layout="@layout/tarjeta_gatos" android:id="@+id/tarjeta_gatos_6"/>
 
         </LinearLayout>
     </ScrollView>
